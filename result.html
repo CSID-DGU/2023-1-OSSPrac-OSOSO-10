@@ -4,12 +4,40 @@
 <head>
    
     <title>result page</title>
+    <script>
+//     function del(){
+//     var del=document.querySelector(".del")
+//     del.onclick = () => {
+//       for(var i=0; i<list.length;i++){
+//       if(list[i].checked){
+//          list[i].parentElement.parentElement.remove();
     
+//       }
+//     }
+//    }
+// }
+function deleteChecked() {
+  var table = document.getElementById("myTable");
+  var checkboxes = table.getElementsByTagName("input");
+  for (var i=0; i<checkboxes.length; i++) {
+    if (checkboxes[i].type == "checkbox" && checkboxes[i].checked) {
+      table.deleteRow(checkboxes[i].parentNode.parentNode.rowIndex);
+    }
+  }
+}
+   
+</script>
+<style>
+    a{
+      text-decoration-line: none;
+    }
+   </style>
 </head>
 
 <body>
+   
     <form method="POST">
-        <table border='1'>
+        <table id="myTable" border='1'>
             <thead>
                 {% for key in result.keys() %}
                 <tc>
@@ -30,9 +58,10 @@
            
         </table>
         
-        <button type = 'Delete row' name='Delete row' value='Delete row'>Delete row</button>
+        <input type="button" value="deleteRow" onclick="deleteChecked()">
         <button type = 'Add row' name='Add row' value='Add row'>Add row</button>
-        <br><button type = 'Home' name='Home' value='Home'>Home</button></br>
+        <br><button type = 'Home' name='Home' value='Home' ><a href="/" >Home</a></button></br>
+      
 
 
     </form>
