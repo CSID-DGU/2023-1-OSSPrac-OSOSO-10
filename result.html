@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+    <title>result page</title>
+    
+</head>
+
+<body>
+    <form method="POST">
+        <table border='1'>
+            <thead>
+                {% for key in result.keys() %}
+                <tc>
+                   <th>{{ key }}</th>
+                </tc>
+                {% endfor %}
+             </thead>
+             <tbody>
+                {% for value in result.values() %}
+                   <tc>
+                      <td>{{ value }}</td> 
+                   </tc>
+                   
+                {% endfor %}
+                <td><input type="checkbox"></td>
+             </tbody>
+            
+           
+        </table>
+        
+        <button type = 'Delete row' name='Delete row' value='Delete row'>Delete row</button>
+        <button type = 'Add row' name='Add row' value='Add row'>Add row</button>
+        <br><button type = 'Home' name='Home' value='Home'>Home</button></br>
+
+
+    </form>
+</body>
+
+</html>
