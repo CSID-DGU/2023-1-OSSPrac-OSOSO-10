@@ -17,8 +17,13 @@ def result():
         result['이메일'] = request.form.get('email_id')+"@"+request.form.get('email_addr')
         result['성별'] = request.form.get('gender')
         result['프로그래밍 언어'] = request.form.get('languages')
-        return render_template('result.html',result=result)
-
+        sorted_result = dict(sorted(result.items(), key=lambda x: x[1]))
+        return render_template('result.html', result=sorted_result)
+    
+@app.route('/add_row', methods=['POST'])
+def add_row():
+    if request.method == 'POST':
+        return redirect('/')
 
 if __name__=='__main__':
     app.run(debug=True,host='0.0.0.0',port=8000)
