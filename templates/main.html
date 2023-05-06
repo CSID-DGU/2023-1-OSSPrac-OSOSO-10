@@ -4,7 +4,7 @@
     
     <title>main page</title>
     <script>
-        function validateForm(){ <!--경고창 뜰 수 있도록 변수 수정--!>
+        function validateForm(){ 
             var name=document.getElementById('name').value;
             var StudentNumber=document.getElementById('StudentNumber').value;
             var major=document.getElementById('major').value;
@@ -21,7 +21,7 @@
     </script>
 </head>
 <body>
-    <form action="/result" method="POST" onSubmit="return validateForm()"> <!--action="/result" 설정, submit 클릭 시 result.html로 연결--!>
+    <form action="/result" method="POST" onSubmit="return validateForm()"> 
         
         <p><b>* Name</b> <input type="'text" id='name'name="name"/> </p>
         <p><b>* StudentNumber</b> <input type="'number" id='StudentNumber'name="StudentNumber"/> </p>
@@ -40,7 +40,7 @@
         <input type="checkbox" name="languages" value="Java">Java
         <input type="checkbox" name="languages" value="HTML">HTML
         <input type="checkbox" name="languages" value="C++">C++        
-        <p><button type='submit' name = "submit" value="submit"> submit</button></p> <!--submit 버튼 구현--!>
+        <p><button type='submit' name = "submit" value="submit"> submit</button></p>
         
     </form>
    

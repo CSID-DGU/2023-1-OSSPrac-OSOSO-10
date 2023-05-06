@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
@@ -26,7 +26,26 @@ def result():
 @app.route('/add_row', methods=['POST'])
 def add_row():
     if request.method == 'POST':
+        global result_list
+        result = {}
         return redirect('/')
+
+    
+@app.route('/home', methods=['POST'])
+def home():
+    if request.method == 'POST':
+        global result_list
+        result_list = []
+        return redirect('/')
+
+
+@app.route('/deleterow', methods=['POST'])
+def delete():
+    global result_list
+    student_numbers = request.json['student_numbers']
+    new_result_list = [data for data in result_list if data['학번'] not in student_numbers]
+    result_list = new_result_list
+    return ''
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)
